@@ -1,0 +1,16 @@
+language: generic
+services:
+- docker
+after_success:
+- "./build.sh rpi_2"
+- "./build.sh rpi_3"
+deploy:
+  provider: releases
+  skip_cleanup: true
+  api_key:
+    secure: SSfuil7Rv7AWmXfg1aZ78NSLQ1Pcfn3IYJfdn3eVdshDBXBwdXsSWulKXaW+Qhz4sIsdlj2Qe6tzPqvua49dQoEML6mO63dTsE4s3XTrXHd45YMdRLyQHBXl2GaHgWjeHfMxOqjJUBRXr1UXDry0pMWp6QT5jjXf2eyKSwTSRpUObFes9qrHn1XQ7ky7iXkwInCVlF+cGK6JtZOj1Gh2Q9hNErfTG9z7CiFi3kymbRRgBJC4Z1mpM0pbjf7QQbJEEKZIaVX3R7WFtEKdpE80eGaClIRF5LURiaEsKcTe9hXIbx3nuVlEK8A8sZ48O8o7STrEBPMQPP8bxEwBiTpvuI4obENizcCm5L1nXiTXfTkL8WQSK31UHOCbkaP5BxDR1J8z+2OeBNhXqSM3tFAnPHV4kIIf4wvBmR9o31KfjQQ6G02JkSHK0G6va9H9FIu4wIqkKiczyJE4DPDHYb+9XaWPca05LmMiipv6xr8Rvdkx+aWarcrTtPrDXpp5CJGntzu2G1KJwC2utmuODlmk4grTPUFqnXRM21oX1QT5WONwmOMsHnGA9PVM7VODvYji3gY1grIoB5aX3LDmWoxgLVZdCqcNOU1ehzh8RwTTlQRYfardtf5lUn7SKk6ukxbAsOsWoif0s45C/RCrvxKM9fCYA/J1rZNfO7jyI4txENU=
+  file:
+  - "mender-rpi_2"
+  - "mender-rpi_3"
+  on:
+    tags: true
